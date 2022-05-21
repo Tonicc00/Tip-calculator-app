@@ -1,0 +1,254 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+:root{
+    --strong-cyan:hsl(172, 67%, 45%);
+    --very-dark-cyan:hsl(183, 100%, 15%);
+    --dark-grey-cyan:hsl(186, 14%, 43%);
+    --grey-cyan:hsl(184, 14%, 56%);
+    --light-grey-cyan: hsl(185, 41%, 84%);
+    --very-light-gray-cyan:hsl(189, 41%, 97%);
+    --white:hsl(0, 0%, 100%);
+    --body-font: 'Space Mono', monospace;
+}
+
+*, *:after, *:before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-grey-cyan);
+    min-height: 100vh;
+    position: relative;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+h1, h2, h3, h4{
+    color: var(--grey-cyan);
+}
+
+button{
+    border: none;
+    outline: none;
+}
+
+label{
+    display: flex;
+    justify-content: space-between;
+}
+
+.error-msg{
+    color: red;
+    font-weight: 700;
+}
+
+.amt-error,
+.people-error{
+    visibility: hidden;
+}
+
+.amount{
+    background-image: url(images/icon-dollar.svg);
+    background-repeat: no-repeat;
+}
+
+.people{
+    background-image: url(images/icon-person.svg);
+    background-repeat: no-repeat;
+}
+
+.calculator{
+    background-color: var(--white);
+    border-radius: 1em;
+    margin: 1em;
+    padding: 2em;
+    max-width: 1440px;
+}
+
+.input h1 h2{
+    margin-bottom: 1em;
+}
+
+.amount, .tips{
+    margin-bottom: 1.5rem;
+}
+
+.amount:focus,
+.people:focus,
+.custom:focus{
+    outline: 2px solid var(--strong-cyan);
+}
+
+.error,
+.error:focus{
+    outline: 2px solid red;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    background-color: var(--very-light-gray-cyan);
+    background-position: 1em center;
+    background-size: 1em;
+    color: var(--strong-cyan);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: right;
+    outline: none;
+    border: none;
+    border-radius: 1vh;
+    -webkit-appearance:textfield;
+    -moz-appearance: textfield;
+    padding: 0 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: textfield;
+    margin: 0;
+}
+
+.tips{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+}
+
+.tip{
+    font-size: 1.5em;
+    font-weight: 700;
+    background: var(--very-dark-cyan);
+    color: white;
+    border-radius: 1vh;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.unselected:hover{
+    background: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.tip:active{
+    transform: scale(0.9);
+}
+
+.tip-amount, .total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seclected{
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.text h3{
+    color: white;
+}
+
+.text h3, h4{
+    font-weight: 400;
+}
+
+.value{
+    color: var(--strong-cyan);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.custom{
+    letter-spacing: 1rem;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--very-dark-cyan);
+    text-align: center;
+}
+
+.result{
+    margin-top: 1rem;
+    padding: 2em;
+    background: var(--very-dark-cyan);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5;
+}
+
+.reset{
+    width: 100%;
+    height: 50%;
+    font-size: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+    border-radius: 1vh;
+    margin-top: auto;
+    transition: background 300ms ease-in-out,
+    transform 200ms ease;
+    cursor: pointer;
+}
+
+.reset:hover{
+    background: whitesmoke;
+}
+
+.reset:active{
+    transform: scale(0.95);
+}
+
+@media (max-width: 800px){
+    header{
+        margin-top: 2em;
+    }
+    header img{
+        transform: scale(1.2);
+    }
+    .custom{
+        font-size: 15px;
+        letter-spacing: 1px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 799){
+    header{
+        margin: 0;
+    }
+
+    .calculator{
+        display: flex;
+        gap: 1em;
+    }
+
+    .calculator > *{
+        width: 100%;
+    }
+
+    .tips{
+        grid-template-rows:repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.attribution{
+    display: none;
+}
